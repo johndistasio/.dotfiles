@@ -8,6 +8,8 @@
   excludesFile = ~/.gitignore
 [merge]
   tool = vimdiff
+[push]
+  default = upstream
 [user]
   name = John DiStasio
   email = jndistasio@gmail.com
