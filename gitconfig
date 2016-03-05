@@ -1,0 +1,13 @@
+[color]
+  branch = auto
+  interactive = auto
+  status = auto
+  ui = auto
+[core]
+  editor = vim
+  excludesFile = ~/.gitignore
+[merge]
+  tool = vimdiff
+[user]
+  name = John DiStasio
+  email = jndistasio@gmail.com
