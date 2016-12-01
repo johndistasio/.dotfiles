@@ -1,14 +1,21 @@
+# vi: set ft=gitconfig :
+[alias]
+    co = checkout
+    cob = checkout -b
+    lol = log --graph --decorate --pretty=oneline --abbrev-commit
+    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 [color]
-  branch = auto
-  interactive = auto
-  status = auto
-  ui = auto
+    branch = auto
+    interactive = auto
+    status = auto
+    ui = auto
 [core]
-  editor = vim
-  excludesFile = ~/.gitignore
+    editor = vim
+    excludesFile = ~/.gitignore
 [merge]
-  tool = vimdiff
+    tool = vimdiff
 [push]
-  default = upstream
+    default = current
 [user]
-  name = John DiStasio
+    name = John DiStasio
+    email = jndistasio@gmail.com
