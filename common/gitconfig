@@ -4,6 +4,7 @@
     cob = checkout -b
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    squish = merge --squash
 [color]
     branch = auto
     interactive = auto
