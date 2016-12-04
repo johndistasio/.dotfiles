@@ -1,4 +1,4 @@
-# vi: set ft=gitconfig :
+# vi: set ft=gitconfig:
 [alias]
     co = checkout
     cob = checkout -b
