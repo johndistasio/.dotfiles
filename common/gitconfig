@@ -1,14 +1,12 @@
 # vi: set ft=gitconfig:
 [alias]
-    co = checkout
-    cob = checkout -b
+    destroy = branch -D
+    get = checkout
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    new = checkout -b
     squish = merge --squash
 [color]
-    branch = auto
-    interactive = auto
-    status = auto
     ui = auto
 [core]
     editor = vim
@@ -20,3 +18,7 @@
 [user]
     name = John DiStasio
     email = jndistasio@gmail.com
+
+# Stick site-local settings customizations here; keep out of source control
+[include]
+    path = ~/.gitconfig.local
