@@ -1,24 +1,24 @@
 # vi: set ft=gitconfig:
 [alias]
-    destroy = branch -D
-    get = checkout
-    lol = log --graph --decorate --pretty=oneline --abbrev-commit
-    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
-    new = checkout -b
-    squish = merge --squash
+  bye = checkout -- .
+  destroy = branch -D
+  get = checkout
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+  new = checkout -b
+  squish = merge --squash
+  staged = diff --staged
+  sync = fetch --all --prune
 [color]
-    ui = auto
+  ui = auto
 [core]
-    editor = vim
-    excludesFile = ~/.gitignore
+  editor = vim
+  excludesFile = ~/.gitignore
 [merge]
-    tool = vimdiff
+  tool = vimdiff
 [push]
-    default = current
-[user]
-    name = John DiStasio
-    email = jndistasio@gmail.com
+  default = current
 
 # Stick site-local settings customizations here; keep out of source control
 [include]
-    path = ~/.gitconfig.local
+  path = ~/.gitconfig.local
