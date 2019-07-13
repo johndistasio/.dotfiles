@@ -1,12 +1,20 @@
 #!/bin/bash
 
-dotfiles=~/.dotfiles
+DOTS="${HOME}/src/dotfiles/home"
 
-github="https://github.com"
+# Link files from a given directory at ~/.filename
+# @param1 path to directory
+function link() {
+  local dir="${1}"
 
-git clone --recursive ${github}/sorin-ionescu/prezto.git ~/.zprezto
+  if [[ ! -d "${dir}" ]]; then
+    echo "Warning: '${dir}' is not a directory; skipping..."
+    return
+  fi
 
-git clone ${github}/rbenv/rbenv.git ~/.rbenv \
-    && git clone ${github}/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+  while read -r f; do
+    ln -v -s "${dir}" "${HOME}/.$(basename ${f})"
+  done < <(find "${dir}" -type f)
+}
 
-# TODO: Install dotfiles.
+link "${DOTS}"

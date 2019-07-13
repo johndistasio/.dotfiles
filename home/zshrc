@@ -52,8 +52,10 @@ precmd() {
 PROMPT='%{$fg[blue]%}%~%{$reset_color%}${vcs_info_msg_0_}%# '
 
 alias ..='cd ..'
-alias ll='ls -lGh'
-alias ls='ls -Gh'
+
+# TODO: --color is a GNU flag; how can this be made cross-platform?
+alias ll='ls -lGh --color=auto'
+alias ls='ls -Gh --color=auto'
 
 # Load rbenv
 eval "$(rbenv init -)"
@@ -65,11 +67,10 @@ eval "$(rbenv init -)"
 [[ -f ~/.path.sh ]] && source ~/.path.sh
 
 # Source site-local functions.
-[[ -f ~/.functions.sh]] && source ~/.functions.sh
+[[ -f ~/.funcs.sh ]] && source ~/.funcs.sh
 
 # Syntax highlighting for the command line.
 # Per the authors of this plugin, it must be the last thing sourced in the .zsh.
 if [[ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
   source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
-
