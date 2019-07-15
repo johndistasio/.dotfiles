@@ -69,8 +69,5 @@ eval "$(rbenv init -)"
 # Source site-local functions.
 [[ -f ~/.funcs.sh ]] && source ~/.funcs.sh
 
-# Syntax highlighting for the command line.
-# Per the authors of this plugin, it must be the last thing sourced in the .zsh.
-if [[ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
-  source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
+source <(antibody init)
+antibody bundle < "$HOME/.zsh_plugins.txt"
