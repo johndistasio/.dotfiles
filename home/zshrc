@@ -52,8 +52,6 @@ precmd() {
 PROMPT='%{$fg[blue]%}%~%{$reset_color%}${vcs_info_msg_0_}%# '
 
 alias ..='cd ..'
-
-# TODO: --color is a GNU flag; how can this be made cross-platform?
 alias ll='ls -lGh --color=auto'
 alias ls='ls -Gh --color=auto'
 
