@@ -76,6 +76,7 @@ pyenv() {
   pyenv $@
 }
 
+# rust
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # Source site-local alias configuration.
