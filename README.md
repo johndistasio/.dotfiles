@@ -19,7 +19,6 @@ Site-local/personal stuff isn't scripted.
 Create `~/.gitconfig.local` as follows:
 
 ```
-# vi: set ft=gitconfig:
 [user]
   name = "<name>"
   email = "<email>"
