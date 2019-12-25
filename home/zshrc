@@ -77,6 +77,14 @@ pyenv() {
 # rust
 export PATH="$HOME/.cargo/bin:$PATH"
 
+# n (node version manager)
+export N_PREFIX="$HOME/.n"
+export PATH="$N_PREFIX/bin:$PATH"
+
+# go
+export GOPATH="$HOME/go"
+export PATH="$GOPATH/bin:$PATH"
+
 # Source site-local alias configuration.
 [[ -f ~/aliases.sh ]] && source ~/.aliases.sh
 
