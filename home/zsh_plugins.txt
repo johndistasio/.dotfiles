@@ -1,3 +1,4 @@
 # zsh plugins for antibody
 
 zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-autosuggestions
