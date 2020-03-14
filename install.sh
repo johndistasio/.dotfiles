@@ -13,7 +13,7 @@ function link() {
   fi
 
   while read -r f; do
-    ln -v -s "${f}" "${HOME}/.$(basename ${f})"
+    ln -v -s -f "${f}" "${HOME}/.$(basename ${f})"
   done < <(find "${dir}" -type f)
 }
 
