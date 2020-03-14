@@ -85,6 +85,7 @@ export PATH="$N_PREFIX/bin:$PATH"
 # go
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
+export PATH="/usr/local/go/bin:$PATH"
 
 # Source site-local alias configuration.
 [[ -f ~/aliases.sh ]] && source ~/.aliases.sh
