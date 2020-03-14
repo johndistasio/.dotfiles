@@ -1,7 +1,5 @@
 #!/bin/bash
 
-DOTS="${HOME}/src/dotfiles/home"
-
 # Link files from a given directory at ~/.filename
 # @param1 path to directory
 function link() {
@@ -16,5 +14,12 @@ function link() {
     ln -v -s -f "${f}" "${HOME}/.$(basename ${f})"
   done < <(find "${dir}" -type f)
 }
+
+
+DOTS="${1}"
+
+if [[ -z "${DOTS}" ]]; then
+  DOTS="${PWD}/home"
+fi
 
 link "${DOTS}"
