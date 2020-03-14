@@ -87,6 +87,9 @@ export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
 export PATH="/usr/local/go/bin:$PATH"
 
+# xdg dirs
+export PATH="$HOME/.local/bin:$PATH"
+
 # Source site-local alias configuration.
 [[ -f ~/aliases.sh ]] && source ~/.aliases.sh
 
