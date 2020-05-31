@@ -55,6 +55,9 @@ alias ..='cd ..'
 alias ll='ls -lGh --color=auto'
 alias ls='ls -Gh --color=auto'
 
+# Tidy up and truncate output filenames to avoid hitting filename size limitations.
+alias youtube-dl='youtube-dl -o "%(title).150s-%(id)s.%(ext)s" --restrict-filenames'
+
 #ruby
 export PATH="$HOME/.rbenv/bin:$PATH"
 # Lazy-loading for rbenv
