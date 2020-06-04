@@ -102,5 +102,9 @@ export PATH="$HOME/.local/bin:$PATH"
 # Source site-local functions.
 [[ -f ~/.funcs.sh ]] && source ~/.funcs.sh
 
-source <(antibody init)
-antibody bundle < "$HOME/.zsh_plugins.txt"
+if type antibody > /dev/null; then
+  source <(antibody init)
+  antibody bundle < "$HOME/.zsh_plugins.txt"
+else
+  echo "zsh plugins not installed; antibody is missing"
+fi
