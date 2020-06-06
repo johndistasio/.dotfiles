@@ -51,9 +51,11 @@ precmd() {
 
 PROMPT='%{$fg[blue]%}%~%{$reset_color%}${vcs_info_msg_0_}%# '
 
-alias ..='cd ..'
 alias ll='ls -lGh --color=auto'
 alias ls='ls -Gh --color=auto'
+
+# Have a lot of fun!
+alias ..='cd ..'
 
 # Tidy up and truncate output filenames to avoid hitting filename size limitations.
 alias ydl='youtube-dl -o "%(title).150s-%(id)s.%(ext)s" --restrict-filenames'
