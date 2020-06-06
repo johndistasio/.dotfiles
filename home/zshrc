@@ -83,9 +83,29 @@ export PATH="$HOME/.poetry/bin:$PATH"
 # rust
 export PATH="$HOME/.cargo/bin:$PATH"
 
-# n (node version manager)
-export N_PREFIX="$HOME/.n"
-export PATH="$N_PREFIX/bin:$PATH"
+# javascript
+export NVM_DIR="$HOME/.nvm"
+# Lazy-loading for node tools
+nvm() {
+  unset -f nvm
+  source "$NVM_DIR/nvm.sh"
+  nvm "$@"
+}
+npm() {
+  unset -f npm
+  source "$NVM_DIR/nvm.sh"
+  npm "$@"
+}
+npx() {
+  unset -f npx
+  source "$NVM_DIR/nvm.sh"
+  npx "$@"
+}
+node() {
+  unset -f node
+  source "$NVM_DIR/nvm.sh"
+  node "$@"
+}
 
 # go
 export GOPATH="$HOME/go"
