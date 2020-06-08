@@ -4,11 +4,14 @@ autoload -Uz colors && colors
 # Initialize the completion system.
 autoload -Uz compinit && compinit
 
+# Make all completion functions use their verbose forms.
 zstyle ':completion:*' verbose true
 
+# List directories first in file completion output.
 zstyle ':completion:*' list-dirs-first true
 
-zstyle ':completion:*' menu true
+# Always enable menu-style completion even if there are few matches.
+zstyle ':completion:*' menu select
 
 # Initialize the version control awareness system.
 autoload -Uz vcs_info
