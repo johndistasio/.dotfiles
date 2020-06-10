@@ -118,6 +118,11 @@ export PATH="/usr/local/go/bin:$PATH"
 # xdg dirs
 export PATH="$HOME/.local/bin:$PATH"
 
+# fix home, delete, and end key escape codes so those keys work
+bindkey "^[[1~" beginning-of-line
+bindkey "^[[3~" delete-char
+bindkey "^[[4~" end-of-line
+
 # Source site-local alias configuration.
 [[ -f ~/aliases.sh ]] && source ~/.aliases.sh
 
