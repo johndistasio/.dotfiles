@@ -124,7 +124,7 @@ bindkey "^[[3~" delete-char
 bindkey "^[[4~" end-of-line
 
 # Source site-local alias configuration.
-[[ -f ~/aliases.sh ]] && source ~/.aliases.sh
+[[ -f ~/.aliases.sh ]] && source ~/.aliases.sh
 
 # Source site-local path configuration.
 [[ -f ~/.path.sh ]] && source ~/.path.sh
