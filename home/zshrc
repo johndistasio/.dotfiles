@@ -123,14 +123,8 @@ bindkey "^[[1~" beginning-of-line
 bindkey "^[[3~" delete-char
 bindkey "^[[4~" end-of-line
 
-# Source site-local alias configuration.
-[[ -f ~/.aliases.sh ]] && source ~/.aliases.sh
-
-# Source site-local path configuration.
-[[ -f ~/.path.sh ]] && source ~/.path.sh
-
-# Source site-local functions.
-[[ -f ~/.funcs.sh ]] && source ~/.funcs.sh
+# Stick any site-local configuration in here (i.e. employer-specific config).
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
 if type antibody > /dev/null; then
   source <(antibody init)
