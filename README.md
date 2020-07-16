@@ -1,6 +1,6 @@
 # dotfiles
 
-Homespun artisnal application configuration, the way grandad used to do it.
+Homespun artisanal application configuration, the way grandad used to do it.
 
 ## Setup
 
