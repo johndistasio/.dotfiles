@@ -60,6 +60,11 @@ alias ls='ls -Gh --color=auto'
 # Have a lot of fun!
 alias ..='cd ..'
 
+# Function instead of an alias since it seems to work as expected in a subshell.
+docker() {
+  podman $@
+}
+
 # Tidy up and truncate output filenames to avoid hitting filename size limitations.
 alias ydl='youtube-dl -o "%(title).150s-%(id)s.%(ext)s" --restrict-filenames'
 
