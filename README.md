@@ -7,7 +7,7 @@ Homespun artisanal application configuration, the way grandad used to do it.
 Common stuff is scripted; run:
 
 ```
-$ bash install.sh
+$ zsh install.sh
 ```
 
 ## Manual setup

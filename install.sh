@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # Link files from a given directory at ~/.filename
 # @param1 path to directory
 function link() {
