@@ -20,4 +20,4 @@ if [[ -z "${DOTS}" ]]; then
   DOTS="${PWD}/home"
 fi
 
-link "${DOTS}"
+(link "${DOTS}") | column -t
