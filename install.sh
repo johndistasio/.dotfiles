@@ -1,5 +1,9 @@
+# Anything that would be symlinked into these directories is copied instead.
+copy=(
+  $HOME/.config/nvim/autoload
+)
+
 # Link files from a given directory at ~/.filename
-# @param1 path to directory
 function link() {
   local dir="${1}"
   local dryrun="${2}"
@@ -13,9 +17,9 @@ function link() {
     d="${d/$dir/$HOME}"
     d="${d/$HOME\//$HOME/.}"
 
-    if [[ "${dryrun}" != "" ]]; then
-      echo "mkdir -> ${d}"
-    else
+    echo "mkdir -> '${d}'"
+
+    if [[ -z "${dryrun}" ]]; then
       mkdir -p "${d}"
     fi
 
@@ -25,11 +29,29 @@ function link() {
     l="${f/$dir/$HOME}"
     l="${l/$HOME\//$HOME/.}"
 
+    c=0
 
-    if [[ "${dryrun}" != "" ]]; then
-      echo "'${l}' -> '${f}'"
-    else
-      ln -v -s -f "${f}" "${l}"
+    for item in "${copy[@]}"; do
+      if [[ "${l}" == "${item}/$(basename ${f})" ]]; then
+
+        echo "cp -> '${l}'"
+
+        if [[ -z "${dryrun}" ]]; then
+          cp -f "${f}" "${l}"
+        fi
+
+        c=1
+
+      fi
+    done
+
+    if [[ $c == 0 ]]; then
+
+      if [[ -z "${dryrun}" ]]; then
+        echo "'${l}' -> '${f}'"
+      else
+        ln -v -s -f "${f}" "${l}"
+      fi
     fi
 
   done < <(find "${dir}" -type f -mindepth 1)
@@ -40,6 +62,11 @@ DOTS="${1}"
 
 if [[ -z "${DOTS}" ]]; then
   DOTS="${PWD}/home"
+fi
+
+if [[ -z "${HOME}" ]]; then
+  echo '$HOME is not set!'
+  exit 1
 fi
 
 (link "${DOTS}" "${DRYRUN}") | column -t
