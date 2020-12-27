@@ -24,7 +24,7 @@ Plug 'tpope/vim-vinegar'
 Plug 'dense-analysis/ale'
 "Plug 'danilamihailov/beacon.nvim'
 
-if has('nvim') && has('python3')
+if has('python3')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 endif
 
