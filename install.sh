@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # Anything that would be symlinked into these directories is copied instead.
 copy=(
   $HOME/.config/nvim/autoload
