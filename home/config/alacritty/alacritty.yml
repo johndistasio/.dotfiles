@@ -8,7 +8,7 @@ font:
   size: 13.0
 
 shell:
-  program: /usr/bin/tmux
+  program: tmux
 
 cursor:
   style: Underline
