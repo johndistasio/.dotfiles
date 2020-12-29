@@ -15,6 +15,10 @@ function link() {
     return
   fi
 
+  if [[ -n "${dryrun}" ]]; then
+    echo "DRYRUN"
+  fi
+
   while read -r d; do
     d="${d/$dir/$HOME}"
     d="${d/$HOME\//$HOME/.}"
@@ -49,10 +53,10 @@ function link() {
 
     if [[ $c == 0 ]]; then
 
+      echo "'${l}' -> '${f}'"
+
       if [[ -z "${dryrun}" ]]; then
-        echo "'${l}' -> '${f}'"
-      else
-        ln -v -s -f "${f}" "${l}"
+        ln -s -f "${f}" "${l}"
       fi
     fi
 
