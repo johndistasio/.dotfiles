@@ -23,8 +23,6 @@ function link() {
     d="${d/$dir/$HOME}"
     d="${d/$HOME\//$HOME/.}"
 
-    echo "mkdir -> '${d}'"
-
     if [[ -z "${dryrun}" ]]; then
       mkdir -p "${d}"
     fi
@@ -40,7 +38,7 @@ function link() {
     for item in "${copy[@]}"; do
       if [[ "${l}" == "${item}/$(basename ${f})" ]]; then
 
-        echo "cp -> '${l}'"
+        echo "'${l}' cp '${f}'"
 
         if [[ -z "${dryrun}" ]]; then
           cp -f "${f}" "${l}"
@@ -53,7 +51,7 @@ function link() {
 
     if [[ $c == 0 ]]; then
 
-      echo "'${l}' -> '${f}'"
+      echo "'${l}' <- '${f}'"
 
       if [[ -z "${dryrun}" ]]; then
         ln -s -f "${f}" "${l}"
