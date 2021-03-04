@@ -176,6 +176,11 @@ endif
 
 nmap <leader>t :TagbarOpenAutoClose<CR>
 
+" Auto-format a temporary JSON document and allow close with plain :q
+nmap <leader>j :set ft=json <bar> %!jq<CR> <bar> <C-O>zO <bar> :setlocal nobuflisted buftype=nofile bufhidden=wipe noswapfile<CR>
+" Same for YAML
+nmap <leader>y :set ft=yaml <bar> :setlocal nobuflisted buftype=nofile bufhidden=wipe noswapfile<CR>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Language Settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
