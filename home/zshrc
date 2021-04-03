@@ -1,8 +1,20 @@
 # Uncomment for startup performance analysis (1/2)
 #zmodload zsh/zprof
 
+# TODO Determine if there is still a user for this.
 # Load ANSI color codes into the shell.
-autoload -Uz colors && colors
+# Use like "%{$fg[green]%}", reset with "%{$reset_color%}".
+#autoload -Uz colors && colors
+
+# Array of 256-color compatible color escapes.
+typeset -A clr
+clr[reset]='%F{F}'
+clr[red]='%F{9}'
+clr[green]='%F{10}'
+clr[yellow]='%F{11}'
+clr[blue]='%F{12}'
+clr[purple]='%F{13}'
+clr[cyan]='%F{13}'
 
 # Initialize the completion system.
 autoload -Uz compinit && compinit
@@ -26,19 +38,20 @@ zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:git:*' check-for-changes true
 
 # Formatting for %c (staged changes) format string.
-zstyle ':vcs_info:git*' stagedstr "%{$fg[green]%}+%{$reset_color%}"
+zstyle ':vcs_info:git*' stagedstr "${clr[green]}+${clr[reset]}"
 
 # Formatting for %u (unstaged changes) format string.
-zstyle ':vcs_info:git*' unstagedstr "%{$fg[red]%}~%{$reset_color%}"
-
-# Format prompt string used during an "action" like a rebase or merge.
-zstyle ':vcs_info:git*' actionformats ":%{$fg[magenta]%}%b%{$reset_color%}%u%c:%{$fg[cyan]%}%a%{$reset_color%}"
+zstyle ':vcs_info:git*' unstagedstr "${clr[red]}+${clr[reset]}"
 
 # Normal prompt format string.
-zstyle ':vcs_info:git*' formats ":%{$fg[magenta]%}%b%{$reset_color%}%u%c"
+vcs_info_git_formats=":${clr[purple]}%b${clr[reset]}%u%c"
+zstyle ':vcs_info:git*' formats "${vcs_info_git_formats}"
+
+# Format prompt string used during an "action" like a rebase or merge.
+zstyle ':vcs_info:git*' actionformats "${vcs_info_git_formats}:${clr[cyan]}%a${clr[reset]}"
 
 # Change directory by typing directory name if it's not a command.
-setopt auto_cd 
+setopt auto_cd
 
 # Make cd push the old directory onto the directory stack.
 setopt auto_pushd
@@ -55,7 +68,7 @@ precmd() {
   vcs_info
 }
 
-PROMPT='%{$fg[blue]%}%~%{$reset_color%}${vcs_info_msg_0_}%# '
+PROMPT='${clr[blue]}%~${clr[reset]}${vcs_info_msg_0_}%# '
 
 if [[ "$(uname)" == "Darwin" ]]; then
   alias ll='ls -lhG'
