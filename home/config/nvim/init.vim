@@ -22,7 +22,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-vinegar'
 Plug 'dense-analysis/ale'
-"Plug 'danilamihailov/beacon.nvim'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
 if has('python3')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -68,8 +68,8 @@ filetype plugin on
 " Enable syntax highlighting plugins
 syntax enable
 
-" Always show line numbers.
-set number
+" Always show relative line numbers.
+set number relativenumber
 
 " Open new horizontal splits on the bottom.
 set splitbelow
