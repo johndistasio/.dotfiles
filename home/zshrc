@@ -1,6 +1,15 @@
 # Uncomment for startup performance analysis (1/2)
 #zmodload zsh/zprof
 
+os="unknown"
+
+case "$(uname -s)" in
+Linux*)
+   os="linux";;
+Darwin*)
+  os="macos";;
+esac
+
 # TODO Determine if there is still a user for this.
 # Load ANSI color codes into the shell.
 # Use like "%{$fg[green]%}", reset with "%{$reset_color%}".
@@ -70,12 +79,12 @@ precmd() {
 
 PROMPT='${clr[blue]}%~${clr[reset]}${vcs_info_msg_0_}%# '
 
-if [[ "$(uname)" == "Darwin" ]]; then
+alias ll='ls -lh --color=auto'
+alias ls='ls -h --color=auto'
+
+if [[ "$os" == "macos" ]]; then
   alias ll='ls -lhG'
   alias ls='ls -hG'
-else
-  alias ll='ls -lh --color=auto'
-  alias ls='ls -h --color=auto'
 fi
 
 # Have a lot of fun!
@@ -159,9 +168,11 @@ export PATH="/usr/local/go/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
 # fix home, delete, and end key escape codes so those keys work
-bindkey "^[[1~" beginning-of-line
-bindkey "^[[3~" delete-char
-bindkey "^[[4~" end-of-line
+if [[ "$os" == "linux" ]]; then
+  bindkey "^[[1~" beginning-of-line
+  bindkey "^[[3~" delete-char
+  bindkey "^[[4~" end-of-line
+fi
 
 # Stick any site-local configuration in here (i.e. employer-specific config).
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
