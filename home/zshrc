@@ -10,7 +10,7 @@ Darwin*)
   os="macos";;
 esac
 
-# TODO Determine if there is still a user for this.
+# TODO Determine if there is still a use for this.
 # Load ANSI color codes into the shell.
 # Use like "%{$fg[green]%}", reset with "%{$reset_color%}".
 #autoload -Uz colors && colors
