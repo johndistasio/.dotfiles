@@ -43,6 +43,7 @@ Plug 'dag/vim-fish'
 Plug 'rust-lang/rust.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'tsandall/vim-rego'
 
 " Source Control
 Plug 'airblade/vim-gitgutter'
