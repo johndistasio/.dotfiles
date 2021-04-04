@@ -132,6 +132,19 @@ python3() {
   python3 $@
 }
 
+venv() {
+  local v="$1"
+
+  if [[ ! -n "$v" ]]; then
+    v="$(ls ~/.venv/ | fzf)"
+  fi
+
+  if [[ -n "$v" ]]; then
+    source "$HOME/.venv/$v/bin/activate"
+  fi
+}
+
+
 # rust
 export PATH="$HOME/.cargo/bin:$PATH"
 
