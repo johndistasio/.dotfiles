@@ -79,6 +79,8 @@ precmd() {
 
 PROMPT='${clr[blue]}%~${clr[reset]}${vcs_info_msg_0_}%# '
 
+alias cds="$HOME/src"
+alias k="kubectl"
 alias ll='ls -lh --color=auto'
 alias ls='ls -h --color=auto'
 
