@@ -38,7 +38,7 @@ function link() {
     for item in "${copy[@]}"; do
       if [[ "${l}" == "${item}/$(basename ${f})" ]]; then
 
-        echo "'${l}' cp '${f}'"
+        echo "'${l}' <= '${f}'"
 
         if [[ -z "${dryrun}" ]]; then
           cp -f "${f}" "${l}"
